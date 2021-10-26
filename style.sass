@@ -1,7 +1,11 @@
-* 
+*
     margin: 0
     padding: 0
     box-sizing: border-box
+
+
+i
+    pointer-events: none
 
 
 body
@@ -16,14 +20,13 @@ header
         color: white
         font-size: 3rem
 
-
-form 
+form
     display: flex
     justify-content: center
     align-items: center
 
     input, button
-        border: none 
+        border: none
         padding: .25rem .5rem
         font-size: 1.75rem
         margin: .1rem
@@ -33,17 +36,68 @@ form
         text-align: center
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button 
+    input::-webkit-inner-spin-button
         -webkit-appearance: none
         margin: 0
-    
 
     /* Firefox */
-    input[type=number] 
-        -moz-appearance: textfield;
+    input[type=number]
+        -moz-appearance: textfield
 
     button
-        cursor: 
+        cursor:
         background-color: #A8CA9A
         color: white
-        
+
+section
+    display: flex
+    flex-flow: column
+    align-items: center
+    .todo
+        width: 30vw
+        display: flex
+        align-items: center
+        margin: .25rem 0
+        transition: all 0.1s ease
+        p
+            background-color: white
+            color: black
+            padding: .25rem .5rem
+            font-size: 1.75rem
+            font-family: Font Awesome 5 Pro
+        p.todo-text
+            width: 50%
+
+        p.todo-time
+            width: 30%
+            text-align: center
+
+        button
+            padding: .25rem .5rem
+            font-size: 1.75rem
+            border: none
+            cursor: pointer
+            color: white
+
+        button.complete
+            background-color: green
+        button.trash
+            background-color: red
+
+.done
+    opacity: 0.5
+    text-decoration: line-through
+    text-decoration-thickness: .2rem 
+
+
+@keyframes scaleUp
+    0%
+        transform: scale(0)
+    100%
+        transform: scale(1)
+
+@keyframes scaleDown
+    0%
+        transform: scale(1)
+    100%
+        transform: scale(0)
