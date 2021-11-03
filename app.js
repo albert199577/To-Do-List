@@ -18,7 +18,7 @@ add.addEventListener("click", e => {
     }
 
     //create a todo 
-    let todo =document.createElement("div");
+    let todo = document.createElement("div");
     // create class for div
     todo.classList.add("todo");
     let text = document.createElement("p");
@@ -52,7 +52,7 @@ add.addEventListener("click", e => {
 
     trashButton.addEventListener("click", e => {
         let todoItem = e.target.parentElement;
-
+        //當動畫結束時再去進行動作
         todoItem.addEventListener("animationend", () => {
             todoItem.remove();
         })
@@ -91,4 +91,51 @@ add.addEventListener("click", e => {
 })
 
 
+let myList = localStorage.getItem("list");
 
+if(myList !== null) {
+    let myListArray = Json.parse("myList");
+    myListArray.forEach(item => {
+        // create a todo
+        let todo = document.createElement("div");
+        todo.classList.add("todo");
+        let text = document.createElement("p");
+        text.classList.add("todo-text");
+        text.innerText = item.todoText;
+        let time = document.createElement("p");
+        time.classList.add("todo-time");
+        time.innerText = item.todoMonth + " / " + item.todoDate;
+        todo.appendChild(text);
+        todo.appendChild(time);
+
+
+        let completeButton = document.createElement("button");
+        completeButton.classList.add("complete");
+        completeButton.innerHTML = '<i class="fas fa-check-square"></i>';
+
+        completeButton.addEventListener("click", e => {
+            let todoItem = e.target.parentElement;
+            todoItem.classList.toggle("done");
+        })
+
+        let trashButton = document.createElement("button");
+        trashButton.classList.add("trash");
+        trashButton.innerHTML = "<i class='far fa-trash-alt'></i>";
+
+
+        trashButton.addEventListener("click", e => {
+            let todoItem = e.target.parentElement;
+            //當動畫結束時再去進行動作
+            todoItem.addEventListener("animationend", () => {
+            todoItem.remove();
+        })
+        
+        todoItem.style.animation = "scaleDown 0.5s forwards";
+        })
+
+        todo.appendChild(completeButton);
+        todo.appendChild(trashButton);
+
+        section.appendChild(todo);
+    });
+}
