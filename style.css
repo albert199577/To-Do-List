@@ -10,8 +10,8 @@ i {
 }
 
 body {
-  background: -webkit-gradient(linear, left top, right top, from(#D263A4), to(#F58785));
-  background: linear-gradient(90deg, #D263A4, #F58785);
+  background: -webkit-gradient(linear, left top, right top, from(#DEE8D5), to(#E9FAE3));
+  background: linear-gradient(90deg, #DEE8D5, #E9FAE3);
 }
 
 header {
