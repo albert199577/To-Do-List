@@ -94,7 +94,7 @@ add.addEventListener("click", e => {
 let myList = localStorage.getItem("list");
 
 if(myList !== null) {
-    let myListArray = Json.parse("myList");
+    let myListArray = JSON.parse(myList);
     myListArray.forEach(item => {
         // create a todo
         let todo = document.createElement("div");
@@ -127,8 +127,8 @@ if(myList !== null) {
             let todoItem = e.target.parentElement;
             //當動畫結束時再去進行動作
             todoItem.addEventListener("animationend", () => {
-            todoItem.remove();
-        })
+                todoItem.remove();
+            })
         
         todoItem.style.animation = "scaleDown 0.5s forwards";
         })
